@@ -3752,4 +3752,4 @@ vaccine              1
 relocation           1         
 ------------------------------
 Total words processed: 5000
-Elapsed Time: 0.001886 seconds
+Elapsed Time: 0.001930 seconds

@@ -22,7 +22,8 @@ def count_words(file_paths_arg):
                     for a_word in words: # Changed name to avoid shadowing
                         cleaned_word = a_word.strip(".,!?;:\"'").lower()
                         if cleaned_word:
-                            word_counts_dict[cleaned_word] = word_counts_dict.get(cleaned_word, 0) + 1
+                            word_counts_dict[cleaned_word] = word_counts_dict.get(cleaned_word, \
+    0) + 1
         except FileNotFoundError:
             file_errors_list.append(file_path)
             print(f"Error: File '{file_path}' not found.")
@@ -44,31 +45,30 @@ if __name__ == "__main__":
     if word_count_data:
         word_counts, file_errors, elapsed = word_count_data
 
-        output_text = "" #Changed name to snake_case
-        output_text += f"{'Word':<20} {'Frequency':<10}\n"
-        output_text += "-" * 30 + "\n"
+        OUTPUT_TEXT = ""
+        OUTPUT_TEXT += f"{'Word':<20} {'Frequency':<10}\n"
+        OUTPUT_TEXT += "-" * 30 + "\n"
 
-        # Sort by frequency (second element of the tuple) in descending order
         sorted_word_counts = sorted(word_counts.items(), key=lambda item: item[1], reverse=True)
 
         for word, count in sorted_word_counts:
-            output_text += f"{word:<20} {count:<10}\n"
+            OUTPUT_TEXT += f"{word:<20} {count:<10}\n"
 
-        output_text += "-" * 30 + "\n"
+        OUTPUT_TEXT += "-" * 30 + "\n"
 
         total_words = sum(word_counts.values())
-        output_text += f"Total words processed: {total_words}\n"
+        OUTPUT_TEXT += f"Total words processed: {total_words}\n"
 
-        output_text += f"Elapsed Time: {elapsed:.6f} seconds\n"
+        OUTPUT_TEXT += f"Elapsed Time: {elapsed:.6f} seconds\n"
 
         if file_errors:
-            output_text += f"File Errors: {', '.join(file_errors)}\n"
+            OUTPUT_TEXT += f"File Errors: {', '.join(file_errors)}\n"
 
-        print(output_text, end="")
+        print(OUTPUT_TEXT, end="")
 
         try:
             with open("WordCountResults.txt", 'w', encoding='utf-8') as outfile:
-                outfile.write(output_text)
+                outfile.write(OUTPUT_TEXT)
         except OSError as e:
             print(f"Error writing to file: {e}")
 
