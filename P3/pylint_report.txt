@@ -1,0 +1,9 @@
+************* Module wordCount
+wordCount.py:25:0: C0301: Line too long (102/100) (line-too-long)
+wordCount.py:77:0: C0304: Final newline missing (missing-final-newline)
+wordCount.py:1:0: C0103: Module name "wordCount" doesn't conform to snake_case naming style (invalid-name)
+wordCount.py:47:8: C0103: Constant name "output_text" doesn't conform to UPPER_CASE naming style (invalid-name)
+
+------------------------------------------------------------------
+Your code has been rated at 9.18/10 (previous run: 8.98/10, +0.20)
+
